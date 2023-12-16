@@ -156,7 +156,7 @@ class KlipperScreenConfig:
                 bools = (
                     'invert_x', 'invert_y', 'invert_z', '24htime', 'only_heaters', 'show_cursor', 'confirm_estop',
                     'autoclose_popups', 'use_dpms', 'use_default_menu', 'side_macro_shortcut', 'use-matchbox-keyboard',
-                    'show_heater_power', "show_scroll_steppers", "auto_open_extrude"
+                    'show_heater_power', "show_scroll_steppers", "auto_open_extrude","pad_sound","pad_vibration",
                 )
                 strs = (
                     'default_printer', 'language', 'print_sort_dir', 'theme', 'screen_blanking', 'font_size',
@@ -281,6 +281,8 @@ class KlipperScreenConfig:
             {"auto_open_extrude": {"section": "main", "name": _("Auto-open Extrude On Pause"), "type": "binary",
                                    "value": "True", "callback": screen.reload_panels}},
             # {"": {"section": "main", "name": _(""), "type": ""}}
+            {"pad_sound": {"section": "main", "name": _("Enable sound feedback"), "type": "binary", "value": "True"}},
+            {"pad_vibration": {"section": "main", "name": _("Enable vibration feedback"), "type": "binary", "value": "True"}},
         ]
 
         # Options that are in panels and shouldn't be added to the main settings

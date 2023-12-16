@@ -481,7 +481,20 @@ class KlipperScreen(Gtk.Window):
         )
 
     def _button_pressed_feedback(self, widget=None):
-        os.system('/boot/scripts/ks_click.sh')
+        _sound = self._config.get_main_config().getboolean("pad_sound", False)
+        _vibration = self._config.get_main_config().getboolean("pad_vibration", False)
+        
+        if _sound and _vibration:
+            os.system('/boot/scripts/vibrationsound.sh')
+        elif _sound:
+            os.system('/boot/scripts/sound.sh')
+        elif _vibration:
+            os.system('/boot/scripts/vibration.sh')
+        
+        # Used for boot config
+        # os.system('/boot/scripts/ks_click.sh')
+
+
 
     def _go_to_submenu(self, widget, name):
         logging.info(f"#### Go to submenu {name}")
